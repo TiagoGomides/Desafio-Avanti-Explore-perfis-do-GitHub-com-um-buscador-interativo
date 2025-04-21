@@ -1,37 +1,54 @@
 import { UserProps } from "../types/user";
-import React from "react";
+import  { useState } from "react";
 import Search from "../components/Search";
-import { useState } from "react";
-
-
-
-
+import User from "../components/User";
+import Error from "../components/Error";
+import Loader from "../components/Loader"; 
 
 const Home = () => {
-    const [user, setUser] = useState<UserProps | null>(null);
+  const [user, setUser] = useState<UserProps | null>(null);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-    const loadUser = async (userName: string) => {
+  const loadUser = async (userName: string) => {
+    setError(false);
+    setUser(null);
+    setLoading(true); 
 
-        const res = await fetch(`https://api.github.com/users/${userName}`)
-        const data = await res.json();
+    try {
+      const res = await fetch(`https://api.github.com/users/${userName}`);
+      const data = await res.json();
 
-        const {avatar_url, login, bio} = data;
+      if (res.status === 404) {
+        setError(true);
+        return;
+      }
 
-        const userData: UserProps = {
-            avatar_url,
-            login,
-            bio
-        }
+      const { avatar_url, login, bio } = data;
 
-        setUser(userData)
+      const userData: UserProps = {
+        avatar_url,
+        login,
+        bio,
+      };
+
+      setUser(userData);
+    } catch (err) {
+      console.error("Erro ao buscar usuário:", err);
+      setError(true);
+    } finally {
+      setLoading(false); 
     }
+  };
 
-    return (
-        <section>
-            <Search loadUser={loadUser} />
-            {user&& <p>{user.login}</p>}
-        </section>
-    )
-}
+  return (
+    <section>
+      <Search loadUser={loadUser} />
+      {loading && <Loader />}
+      {user && !loading && <User {...user} />}
+      {error && !loading && <Error />}
+    </section>
+  );
+};
 
 export default Home;
