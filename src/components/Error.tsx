@@ -1,11 +1,14 @@
-
+import styles from "./Error.module.css"
 
 const Error = () => {
     return (
-        <section>
+        <section className={styles.container}>
             <p>
-                Nenhum perfil foi encontrado com ese nome de usuário.
-                Tente novamente
+                Nenhum perfil foi encontrado com esse nome de usuário.
+            </p>
+
+            <p>
+            Tente novamente
             </p>
         </section>
     )
