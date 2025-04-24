@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# 🚀 Desafio Avanti - Busca de Perfil no GitHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Badge de Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-orange)
 
-Currently, two official plugins are available:
+## 📌 Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este projeto foi desenvolvido como parte do processo seletivo de estágio da **Avanti**. O desafio consiste em recriar um layout proposto no Figma utilizando **React**, aplicando as melhores práticas de desenvolvimento front-end.
 
-## Expanding the ESLint configuration
+A aplicação permite buscar perfis no GitHub e exibir informações públicas do usuário, como nome, foto de perfil e bio, de forma dinâmica, responsiva e intuitiva.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Deploy
+🔗 Acesse a aplicação online: desafiobuscadorgithub.netlify.app
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠 Tecnologias Utilizadas
+
+### 💻 Front-end
+
+- **TypeScript**: Tipagem estática que torna o código mais robusto, seguro e fácil de manter.
+- **CSS**: Utilizado para estilizar as páginas com foco em responsividade e acessibilidade.
+
+### 🔗 API
+
+- **GitHub API**: Usada para obter dados como repositórios, commits, issues, contribuidores e perfis de usuários.
+
+---
+
+## 📥 Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/TiagoGomides/Desafio-Avanti-Explore-perfis-do-GitHub-com-um-buscador-interativo.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Instale as dependências:
+```bash
+npm install
 ```
+
+3.Execute o projeto:
+```bash
+npm run dev
+```
+
+## ✅ Requisitos Funcionais
+**🔎 Campo de busca:** O usuário digita o nome de um perfil do GitHub.
+
+**🔄 Busca dinâmica:** Ao clicar no botão de busca, a aplicação consome a GitHub API e exibe:
+
+- Nome do usuário
+- Foto de perfil
+- Bio
+- ⚠️ Tratamento de erro: Caso o perfil não seja encontrado, uma mensagem de erro será exibida ao usuário.
+
+
+🧠 Autor
+Projeto desenvolvido por [Tiago Gomides](https://www.linkedin.com/in/gomides-tiago/) para o desafio técnico da Avanti.
