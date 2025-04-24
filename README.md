@@ -9,7 +9,7 @@ Este projeto foi desenvolvido como parte do processo seletivo de estágio da **A
 A aplicação permite buscar perfis no GitHub e exibir informações públicas do usuário, como nome, foto de perfil e bio, de forma dinâmica, responsiva e intuitiva.
 
 ## 🚀 Deploy
-🔗 Acesse a aplicação online: desafiobuscadorgithub.netlify.app
+🔗 Acesse a aplicação online: [desafiobuscadorgithub](https://desafiobuscadorgithub.netlify.app/)
 
 ## 🛠 Tecnologias Utilizadas
 
